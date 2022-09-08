@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -38,6 +35,7 @@ public class TechJobs {
 
                 String columnChoice = getUserSelection("List", columnChoices);
 
+                assert columnChoice != null; //added this to not produce a "NullPointerException"
                 if (columnChoice.equals("all")) {
                     printJobs(JobData.findAll());
                 } else {
@@ -61,7 +59,8 @@ public class TechJobs {
                 System.out.println("\nSearch term:");
                 String searchTerm = in.nextLine();
 
-                if (searchField.equals("all")) {
+               //replace searchField.equals("all") with Object.equals(searchField)  llowing
+                if (Objects.equals(searchField, "all")) {
                     printJobs(JobData.findByValue(searchTerm));
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
