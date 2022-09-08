@@ -59,7 +59,7 @@ public class TechJobs {
                 System.out.println("\nSearch term:");
                 String searchTerm = in.nextLine();
 
-               //replace searchField.equals("all") with Object.equals(searchField)  llowing
+               //replace searchField.equals("all") with Object.equals(searchField)  following
                 if (Objects.equals(searchField, "all")) {
                     printJobs(JobData.findByValue(searchTerm));
                 } else {
@@ -121,11 +121,12 @@ public class TechJobs {
         if (someJobs.isEmpty()) {
             System.out.println("No Results");
         } else {
+            //The yellow light bulb said that there was a raw use of parameterized class 'HasMap'
             for (HashMap map : someJobs) {
-                HashMap<String, String> oneJob = map;
+                // yellow light bulb said that 'onejob' was redundant
                 System.out.println("\n*****");
-
-                for (Map.Entry<String, String> jobListing : oneJob.entrySet()) {
+                //light bulb said "Unchecked cast: 'java.util.HashMap' to 'java.util.HashMap<java.lang.String,java.lang.String>'. I decided to replace "
+                for (Map.Entry<String, String> jobListing : ((HashMap<String, String>) map).entrySet()) {
                     System.out.println(jobListing.getKey() + ": " + jobListing.getValue());
                 }
 
