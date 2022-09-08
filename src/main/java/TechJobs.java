@@ -73,7 +73,7 @@ public class TechJobs {
     private static String getUserSelection(String menuHeader, HashMap<String, String> choices) {
 
         int choiceIdx = -1;
-        Boolean validChoice = false;
+        boolean validChoice = false; // updated wrapper to be primitive
         String[] choiceKeys = new String[choices.size()];
 
         // Put the choices in an ordered structure so we can
